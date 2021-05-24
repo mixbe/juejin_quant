@@ -79,7 +79,7 @@ db.createUser({ user: "root", pwd: "xxxx", roles: [{ role: "readWrite", db: "vnp
 ##  4.1、命令方式回测
 
 ```bash
-python backtest_fixed_time.py
+python run_backtest.py
 ```
 
 
