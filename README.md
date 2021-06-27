@@ -131,6 +131,8 @@ python run_backtest.py
 
 
 
-# 正在更新中……
+# 公众号
+
+![公众号](./images/扫码_搜索联合传播样式-标准色版.png)
 
 
