@@ -1,6 +1,8 @@
 [TOC]
 
-## 1. 2.4.0版本更新什么了
+
+
+## 1. 更新内容
 
 
 
@@ -22,28 +24,31 @@
 
 
 
-首先下面几个常用的几个模块，已经单独拆出去了，作为一个新的项目，独立打包，如果要运行项目，下面几个包是需要安装的
-
 ## 2 如何运行VNPY2.4.0
 
 ### 2.1 环境配置
 
-基本的环境配置，安装参考上一篇
+* [基本的环境配置，安装参考上一篇](https://mp.weixin.qq.com/s?__biz=MzA3NDYxNDc3MQ==&amp;mid=2652390042&amp;idx=1&amp;sn=1b76748baa613014f9a0fe3d0922811d&amp;chksm=8491f006b3e6791072f6f76777e9b6f3ffd38912e0ad03b36b7a5ef81932b23b04bf57a9daa3&token=2142790632&lang=zh_CN#rd)
 
-* **系统**： mac
+* **系统**： Mac
 * **Python环境**： 3.8.8
 
-## 2.2 拉取最新的代码
+### 2.2 拉取最新的代码
 
 * 拉取代码
 
-```
+```bash
+# 拉取代码
 git clone https://github.com/vnpy/vnpy.git
+# 切一个分支，如：local_dev
+git checkout -b local_dev
 ```
 
 * 安装依赖
 
-```
+> 下面几个常用的模块已经拆出去作为一个独立的项目，如果要运行`VNPY`项目，下面几个包是需要安装的
+
+```bash
 pip install vnpy-ctabacktester
 pip install vnpy-ctastrategy
 pip install vnpy-datamanager
@@ -54,14 +59,20 @@ pip install vnpy-riskmanager
 
 ### 2.3 新建一个目录
 
-> 为了原始项目干净，新建一个目录，在这个目录可以写自己的策略代码，工具类等
+> 为了原始项目干净，新建一个目录(名称随意)，在这个目录可以写自己的策略代码，工具类等
 
 - 比如我自己新建了一个目录`workspace`,
-- 在`workspace`,在新建一个两个目录：
+- 在`workspace`目录下再新建两个目录：
   - `.vntrader`:  存放配置文件的地方(mac系统下默认存放路径是` ~/.vntrader`, 不过编辑什么的不方便)
   - `strategies`: 存放策略代码的地方
 
 ### 2.4 实现代码
+
+> 代码：https://github.com/mixbe/juejin_quant
+
+
+
+![目录结构](https://i.loli.net/2021/06/27/oBipTZRY7NfdxXI.png)
 
 * 策略代码： `simple_double_ma`
 * 启动App(图像界面)： `run_app.py`
@@ -69,9 +80,11 @@ pip install vnpy-riskmanager
 
 ## 3. 问题
 
-**版本升级有风险，升级到2.4.0后，发现写的侧脸都无法加载，找不到，最后看源代码，才发现可能没有做到系统兼容。**
+> 系统的策略，还有自己写的策略，都加载不到
 
-Mac，Linux用户要运行带啊，肯定需要改下源代码,：
+**版本升级有风险，升级到2.4.0后，发现自己写的策略程序都无法加载，阅读源代码，才发现官方没有做到系统兼容，等待下一版修复。**
+
+Mac，Linux用户要运行代码，肯定需要改下源码,测试就OK了：
 
 * 包`vnpy_ctastrategy` ，文件`engin` , 803行
 
@@ -81,5 +94,9 @@ Mac，Linux用户要运行带啊，肯定需要改下源代码,：
 # 源代码 pathname: str = str(path) + f"\\*.{suffix}"
 pathname: str = str(path) + f"/*.{suffix}"
 ```
+
+## 4.总结
+
+新的版本问题肯定是有的，下载源码，运行调试，不断探索。
 
 
