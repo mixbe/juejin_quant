@@ -133,6 +133,5 @@ python run_backtest.py
 
 # 公众号
 
-![公众号](./images/扫码_搜索联合传播样式-标准色版.png)
-
+![公众号](https://i.loli.net/2021/07/12/pwiIrB79Gzb5K2M.png)
 
